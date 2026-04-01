@@ -9,7 +9,7 @@ export default function Communication() {
 
   const fetchMessages = async () => {
     try {
-      const res = await fetch('http://localhost:5000/api/communication/history');
+      const res = await fetch('/api/communication/history');
       const data = await res.json();
       if (data.success) {
         setMessages(data.messages);
@@ -35,7 +35,7 @@ export default function Communication() {
     setMessages(prev => [...prev, tempMsg]);
 
     try {
-      await fetch('http://localhost:5000/api/communication/send', {
+      await fetch('/api/communication/send', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ token, text: input })

@@ -4,9 +4,13 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/IntelliCampus/',
   build: {
-    outDir: '../docs',
+    outDir: 'dist',
     emptyOutDir: true
+  },
+  server: {
+    proxy: {
+      '/api': 'http://localhost:5000'
+    }
   }
 })

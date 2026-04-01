@@ -9,7 +9,7 @@ export default function FacultyMonitor() {
 
   const fetchLiveStats = async () => {
     try {
-      const res = await fetch(`http://localhost:5000/api/attendance/live?subject=${encodeURIComponent(subjectFilter)}`);
+      const res = await fetch(`/api/attendance/live?subject=${encodeURIComponent(subjectFilter)}`);
       const json = await res.json();
       
       if (json.success) {

@@ -30,7 +30,7 @@ export default function Attendance() {
   const fetchHistory = async () => {
     const token = localStorage.getItem('campus_token');
     try {
-      const res = await fetch(`http://localhost:5000/api/attendance/student/${token}`);
+      const res = await fetch(`/api/attendance/student/${token}`);
       const data = await res.json();
       if (data.success) setHistory(data.history);
     } catch (err) {}
@@ -45,7 +45,7 @@ export default function Attendance() {
   const reportStatus = async (newStatus, distance) => {
     const token = localStorage.getItem('campus_token');
     try {
-      await fetch('http://localhost:5000/api/attendance/status', {
+      await fetch('/api/attendance/status', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ token, subject, status: newStatus, distance: Math.round(distance) })
