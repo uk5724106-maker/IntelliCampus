@@ -2,12 +2,15 @@
   "name": "frontend",
   "private": true,
   "version": "0.0.0",
+  "homepage": "https://uk5724106-maker.github.io/IntelliCampus",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "firebase": "^12.11.0",
